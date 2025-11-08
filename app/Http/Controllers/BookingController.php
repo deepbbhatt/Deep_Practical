@@ -43,7 +43,7 @@ class BookingController extends Controller
 
         $date = $validated['booking_date'];
 
-        // ✅ Overlap restriction logic
+        // Overlap restriction logic
         $query = Booking::where('booking_date', $date);
 
         // Full-day booking check

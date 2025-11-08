@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +18,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.form');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 });
